@@ -7,13 +7,13 @@ def generate_fibo():
         yield b
         a, b = b, a + b
 
+def euler_002():
+    even_fibo = filter(lambda x: x % 2 == 0, generate_fibo())
+    bounded_values = itertools.takewhile(lambda x: x < 4000000, even_fibo)
+    return sum(bounded_values)
+
 def main():
-    is_even = lambda x: x % 2 == 0
-    upperbound_4m = lambda x: x < 4000000
-    even_fibo = filter(is_even, generate_fibo())
-    valid_values = itertools.takewhile(upperbound_4m, even_fibo)
-    result = sum(valid_values)
-    print(f'Sum to 4 millions: {result}')
+    print(f'Sum to 4 millions: {euler_002()}')
 
 if __name__ == '__main__':
     main()
