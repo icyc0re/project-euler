@@ -7,7 +7,7 @@ def euler_004():
     for a in range(100, 999):
         for b in range(a + 1, 1000):
             n = a * b
-            if is_palindrom(n) and n > highest:
+            if n > highest and is_palindrom(n):
                 highest = n
     return highest
 
