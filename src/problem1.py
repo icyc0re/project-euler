@@ -1,8 +1,4 @@
 # Approach the problem with a generator of multiples (up to a high bound, for simplicity)
-#
-# This could be further extended with:
-# - an infinite generator
-# - 
 
 def generate_multiples(factors, high_bound):
     """ Generate values that are multiple of any of the given factors,
