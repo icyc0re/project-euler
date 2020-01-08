@@ -1,26 +1,22 @@
-import math
-
-def is_prime(n):
-    if n < 2: return False
-    if n == 2: return True
-    for v in range(2, int(math.sqrt(n)) + 1):
-        if n % v == 0: return False
-    return True
-
-def primes():
-    # generator
-    yield 2
-    n = 3
-    while True:
-        if is_prime(n):
-            yield n
-        n += 2
+def compute_primes(upper_bound):
+    is_prime = [False, False, True] + [True] * (upper_bound - 3)
+    for n, p in enumerate(is_prime):
+        if p:
+            for k in range(n * 2, upper_bound, n):
+                is_prime[k] = False
+    return is_prime
 
 def euler_007(n):
-    p = primes()
-    for _ in range(n-1):
-        next(p)
-    return next(p)
-
+    UPPER_BOUND = 200000
+    primes = compute_primes(UPPER_BOUND)
+    cnt = 0
+    for v, p in enumerate(primes):
+        if p:
+            cnt += 1
+        if cnt == n:
+            return v
+    raise Exception('UPPER BOUND REACHER, increase to find more primes')
+    
 if __name__ == '__main__':
+    # print(euler_007(6))
     print(euler_007(10001))
