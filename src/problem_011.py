@@ -8,13 +8,8 @@ def load_input(filename):
     return content
 
 def compute_highest(values, k):
-    highest = -1
-    for line in values:
-        for i in range(len(line) - k):
-            product = reduce(operator.mul, line[i:i+k])
-            if product > highest:
-                highest = product
-    return highest
+    return max([reduce(operator.mul, line[i:i+k]) for line in values
+        for i in range(len(line) - k)])
 
 # expects NxN matrix
 def euler_011(values):
@@ -25,9 +20,7 @@ def euler_011(values):
     h1 = compute_highest(values, k)
     
     # compute highest vertical
-    values2 = []
-    for row, _ in enumerate(values):
-        values2.append([val[row] for val in values])
+    values2 = [[val[row] for val in values] for row, _ in enumerate(values)]
     h2 = compute_highest(values2, k)
 
     # compute highest diagonal (top left - bottom-right)
