@@ -1,18 +1,18 @@
-# each cell can only be reached by left and top
+# in a NxN grid we have to travel
+# N horizontal segments and N vertical segments
+# the number of paths is all the possible orders of such elements
 #
-# this means that the # of paths that reach a cell is
-# the sum of the # of paths that reach the left cell and the top cell
-# the first line has only one path
-# the second line has 1,2,3,4,... paths
-# ...
-# we can iteratively calculate each line, by summing values
+# we have 2 groups of elements (horizontal, vertical)
+# we calculate all possible combinations: factorial(horizontal+vertical)
+# then we divide it by the permutations (all possible ordering) of horizontal
+# and same for vertical
+#
+# final formula: factorial(N + N) / factorial(N) / factorial(N)
+
+from math import factorial
 
 def euler_015(grid_size):
-    paths = list(range(1, grid_size + 2))
-    for _ in range(1, grid_size):
-        for i in range(1, grid_size + 1):
-            paths[i] += paths[i - 1]
-    return paths[-1]
+    return factorial(grid_size * 2) // factorial(grid_size) ** 2
 
 if __name__ == '__main__':
     # print(euler_015(2))
