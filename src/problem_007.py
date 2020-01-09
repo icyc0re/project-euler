@@ -15,7 +15,7 @@ def euler_007(n):
             cnt += 1
         if cnt == n:
             return v
-    raise Exception('UPPER BOUND REACHER, increase to find more primes')
+    raise Exception('UPPER BOUND REACHED! Increase it to find more primes')
     
 if __name__ == '__main__':
     # print(euler_007(6))
