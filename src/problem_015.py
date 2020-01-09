@@ -15,5 +15,5 @@ def euler_015(grid_size):
     return paths[-1]
 
 if __name__ == '__main__':
-    print(euler_015(2))
+    # print(euler_015(2))
     print(euler_015(20))
