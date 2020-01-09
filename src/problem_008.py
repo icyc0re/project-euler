@@ -21,6 +21,6 @@ def euler_008(n: str):
     return highest_adjacent_product(digits, 13)
 
 if __name__ == '__main__':
-    input_filename = os.path.join(os.path.dirname(__file__), 'input/problem8.txt')
+    input_filename = os.path.join(os.path.dirname(__file__), 'input/problem_008.txt')
     input_value = load_input(input_filename)
     print(euler_008(input_value))
