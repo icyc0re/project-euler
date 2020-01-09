@@ -8,9 +8,11 @@ def generate_triangle_numbers():
         yield partialsum
 
 def count_factors(n):
-    if n < 2: return n
-    divisors = 1
+    if n == 1:
+        return n
+
     root = math.sqrt(n)
+    divisors = 1
     for f in range(2, int(root)):
         if n % f == 0:
             divisors += 1
@@ -27,5 +29,5 @@ def euler_012(n):
             return v
 
 if __name__ == '__main__':
-    print(euler_012(5))
+    # print(euler_012(5))
     print(euler_012(500))
